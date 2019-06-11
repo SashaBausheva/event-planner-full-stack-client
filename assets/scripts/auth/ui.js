@@ -3,77 +3,76 @@
 const store = require('../store')
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#auth-message').html('Signed up successfully')
+  $('#auth-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#auth-message').addClass('success')
   formReset()
-  console.log('signUpSuccess ran. Data is :', data)
 }
 
-const signUpFailure = function (error) {
-  $('#message').text('Error on sign up')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+const signUpFailure = function () {
+  $('#auth-message').html('Sign up failure')
+  $('#auth-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#auth-message').removeClass()
+  $('#auth-message').addClass('failure')
   formReset()
-  console.error('signUpFailure ran. Error is :', error)
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#auth-message').html('Signed in successfully')
+  $('#auth-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#auth-message').removeClass()
+  $('#auth-message').addClass('success')
   $('.content').empty()
   $('.signed-in').toggle()
   $('#getEventsButton').show()
   $('#clearEventsButton').hide()
   formReset()
-  console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
 
 const signInFailure = function (error) {
-  $('#message').text('Error on sign in')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  $('#auth-message').html('Failed to sign in')
+  $('#auth-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#auth-message').removeClass()
+  $('#auth-message').addClass('failure')
   formReset()
-  console.error('signInFailure ran. Error is :', error)
 }
 
 const signOutSuccess = function () {
-  $('#message').text('Signed out successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#auth-message').html('Signed out successfully')
+  $('#auth-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#auth-message').removeClass()
+  $('#auth-message').addClass('success')
   $('.signed-in').toggle()
   $('.content').empty()
   $('#getEventsButton').show()
   $('#clearEventsButton').hide()
   formReset()
-  console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
 
-const signOutFailure = function (error) {
-  $('#message').text('Error on sign out')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+const signOutFailure = function () {
+  $('#auth-message').html('Failed to sign out')
+  $('#auth-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#auth-message').removeClass()
+  $('#auth-message').addClass('failure')
   formReset()
-  console.error('signOutFailure ran. Error is :', error)
 }
 
 const changePasswordSuccess = function () {
-  $('#message').text('Changed password successfully')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#auth-message').html('You have changed your password!')
+  $('#auth-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#auth-message').removeClass()
+  $('#auth-message').addClass('success')
   formReset()
-  console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
-const changePasswordFailure = function (error) {
-  $('#message').text('Error on change password')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+const changePasswordFailure = function () {
+  $('#auth-message').html('Failed to change password')
+  $('#auth-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#auth-message').removeClass()
+  $('#auth-message').addClass('failure')
   formReset()
-  console.error('changePasswordFailure ran. Error is :', error)
 }
 
 const formReset = function () {

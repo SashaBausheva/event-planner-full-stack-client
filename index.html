@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Event Planner</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,47 +12,54 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Event Planner</h1>
-      <div class="auth-forms">
+      <header>
+        <h1>Event Planner</h1>
+      </header>
+      <div class="row">
+      <div class="column left"><div class="auth-forms">
         <div class="signed-in">
           <form id="sign-up" class="form-group" style="display:none">
             <legend>Sign up!</legend>
             <input type="text" name="credentials[email]" placeholder="Email" class="form-control">
             <input type="password" name="credentials[password]" placeholder="Password" class="form-control">
             <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="form-control">
-            <input type="submit" value="Sign up!" class="btn btn-primary">
-            <p>Already have an account? <span id="old-user">Sign in!</span></p>
+            <input type="submit" value="Sign up!" class="btn btn-outline-info">
+            <p>Already have an account? <br /><span id="old-user">Sign in!</span></p>
           </form>
 
           <form id="sign-in" class="form-group">
             <legend>Sign in!</legend>
+            <p>You must sign in to be able to create new events.</p>
             <input type="text" name="credentials[email]" placeholder="Email" class="form-control">
             <input type="password" name="credentials[password]" placeholder="Password" class="form-control">
-            <input type="submit" value="Sign in!" class="btn btn-primary">
-            <p>Don't have an account? <span id="new-user">Sign up today!</span></p>
+            <input type="submit" value="Sign in!" class="btn btn-outline-info">
+            <p>Don't have an account? <br /><span id="new-user">Sign up today!</span></p>
           </form>
         </div>
 
         <div class="signed-in" style="display:none">
           <form id="sign-out" class="form-group">
-            <input type="submit" value="Sign out!" class="btn btn-primary">
+            <input type="submit" value="Sign out!" class="btn btn-outline-info">
           </form>
 
           <form id="change-password">
             <legend>Change Password</legend>
             <input type="password" name="passwords[old]" placeholder="Old Password">
             <input type="password" name="passwords[new]" placeholder="New Password">
-            <input type="submit" value="Change Password!" class="btn btn-primary">
+            <input type="submit" value="Change Password!" class="btn btn-outline-info">
           </form>
         </div>
+        <p id="auth-message"></p>
       </div>
+    </div>
 
+    <div class="column right">
       <nav>
-        <div class="app-name">Events</div>
+        <div class="app-name"><h2>Events</h2></div>
         <div class="nav-buttons">
-          <button id="getEventsButton" class="btn btn-outline-info">Get Events!</button>
-          <button id="clearEventsButton" style="display:none" class="btn btn-outline-info">Clear Events!</button>
-          <button style="display:none" id="createEventButton" class="btn btn-outline-info signed-in">Create an Event!</button>
+          <button id="getEventsButton" class="btn btn-primary">Get Events!</button>
+          <button id="clearEventsButton" style="display:none" class="btn btn-primary">Clear Events!</button>
+          <button style="display:none" id="createEventButton" class="btn btn-primary signed-in">Create an Event!</button>
         </div>
       </nav>
 
@@ -61,6 +68,7 @@
           <form id="create-event" style="display:none">
             <fieldset>
               <legend>Enter New Event Info:</legend>
+              <p id="events-message"></p>
               <input type="text" name="event[name]" placeholder="Name" class="event-input">
               <input type="text" name="event[description]" placeholder="Description" class="event-input">
               <input type="date" id="datepicker" name="event[date]" placeholder="Date" class="event-input">
@@ -73,8 +81,9 @@
         </div>
       </div>
       <main>
-        <p id="message"></p>
         <div id="content" class="content"></div>
       </main>
+    </div>
+  </div>
     </body>
 </html>

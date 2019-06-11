@@ -31,8 +31,10 @@
     </p>
     <p>
       {{#if event.editable}}
-        <button class="btn btn-danger remove-event" data-id="{{event.id}}">Remove Event</button>
-        <button class="btn btn-info edit-event-button" data-id="{{event.id}}">Edit Event</button>
+        <div class="edit-event-buttons">
+          <button class="btn btn-danger remove-event" data-id="{{event.id}}">Remove Event</button>
+          <button class="btn btn-info edit-event-button" data-id="{{event.id}}">Edit Event</button>
+        </div>
         <form class="edit-event form-inline" data-id="{{event.id}}" id="update-event-{{event.id}}" style="display:none">
             <legend>Enter Updated Event Info:</legend>
             <input type="text" name="event[name]" placeholder="Name">

@@ -3,8 +3,6 @@
 const showEventsTemplate = require('../templates/events-listing.handlebars')
 
 const getEventsSuccess = (data) => {
-  console.log(data)
-  console.log('this is ' + {events: data.events})
   const showEventsHtml = showEventsTemplate({ events: data.events })
   $('.content').html(showEventsHtml)
   $('#getEventsButton').toggle()
@@ -12,22 +10,28 @@ const getEventsSuccess = (data) => {
 }
 
 const createEventSuccess = (data) => {
-  console.log('this is ' + {events: data.events})
-  console.log(data)
+  $('#events-message').html('Event created!')
+  $('#events-message').fadeIn('fast').delay(2000).fadeOut('fast')
   const showEventsHtml = showEventsTemplate({ events: data.events })
   $('.content').html(showEventsHtml)
+  $('#events-message').text('Event created successfully!')
+  formReset()
 }
 
 const removeEventSuccess = (data) => {
-  console.log(data)
+  $('#events-message').html('Event removed successfully!')
+  $('#events-message').fadeIn('fast').delay(2000).fadeOut('fast')
   const showEventsHtml = showEventsTemplate({ events: data.events })
   $('.content').html(showEventsHtml)
+  formReset()
 }
 
 const editEventSuccess = (data) => {
-  console.log('updated data is' + data)
+  $('#events-message').html('Event updated!')
+  $('#events-message').fadeIn('fast').delay(2000).fadeOut('fast')
   const showEventsHtml = showEventsTemplate({ events: data.events })
   $('.content').html(showEventsHtml)
+  formReset()
 }
 
 const clearEvents = () => {
@@ -36,11 +40,16 @@ const clearEvents = () => {
   $('#clearEventsButton').toggle()
 }
 
-const failure = (error) => {
-  $('#message').text('Error creating event')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error(error)
+const failure = () => {
+  $('#events-message').html('Error creating event')
+  $('#events-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#events-message').removeClass()
+  $('#events-message').addClass('failure')
+  formReset()
+}
+
+const formReset = function () {
+  $('form').trigger('reset')
 }
 
 module.exports = {
@@ -49,5 +58,6 @@ module.exports = {
   removeEventSuccess,
   editEventSuccess,
   clearEvents,
-  failure
+  failure,
+  formReset
 }
