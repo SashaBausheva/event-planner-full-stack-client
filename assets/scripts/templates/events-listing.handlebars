@@ -23,29 +23,14 @@
     </p>
     <h6><b>Location:</b></h6>
     <p>
-      {{event.location}}
+      {{event.location.name}}
+    </p>
+    <p>
+      {{event.location.address}}
     </p>
     <h6><b>Organizer:</b></h6>
     <p>
       {{event.organizer}}
-    </p>
-    <p>
-      {{#if event.editable}}
-        <div class="edit-event-buttons">
-          <button class="btn btn-danger remove-event" data-id="{{event.id}}">Remove Event</button>
-          <button class="btn btn-info edit-event-button" data-id="{{event.id}}">Edit Event</button>
-        </div>
-        <form class="edit-event form-inline" data-id="{{event.id}}" id="update-event-{{event.id}}" style="display:none">
-            <legend>Enter Updated Event Info:</legend>
-            <input type="text" name="event[name]" placeholder="Name">
-            <input type="text" name="event[description]" placeholder="Description">
-            <input type="date" name="event[date]" placeholder="Date">
-            <input type="time" name="event[time]" placeholder="Time">
-            <input type="location" name="event[location]" placeholder="Location">
-            <input type="organizer" name="event[organizer]" placeholder="Organizer">
-            <input type="submit" value="Update Event!">
-        </form>
-      {{/if}}
     </p>
     <!-- <button class="btn btn-danger" data-id="{{book.id}}">Remove Book</button>
     {{> partial}} -->

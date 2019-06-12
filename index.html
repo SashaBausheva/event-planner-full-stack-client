@@ -19,19 +19,19 @@
       <div class="column left"><div class="auth-forms">
         <div class="signed-in">
           <form id="sign-up" class="form-group" style="display:none">
-            <legend>Sign up!</legend>
-            <input type="text" name="credentials[email]" placeholder="Email" class="form-control">
-            <input type="password" name="credentials[password]" placeholder="Password" class="form-control">
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="form-control">
+            <legend>Sign up</legend>
+            <input type="email" name="credentials[email]" placeholder="Email" class="form-control" required>
+            <input type="password" name="credentials[password]" placeholder="Password" class="form-control" required>
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" class="form-control" required>
             <input type="submit" value="Sign up!" class="btn btn-outline-info">
             <p>Already have an account? <br /><span id="old-user">Sign in!</span></p>
           </form>
 
           <form id="sign-in" class="form-group">
-            <legend>Sign in!</legend>
-            <p>You must sign in to be able to create new events.</p>
-            <input type="text" name="credentials[email]" placeholder="Email" class="form-control">
-            <input type="password" name="credentials[password]" placeholder="Password" class="form-control">
+            <legend>Sign in</legend>
+            <p>You must sign in to be able to add new events</p>
+            <input type="email" name="credentials[email]" placeholder="Email" class="form-control" required>
+            <input type="password" name="credentials[password]" placeholder="Password" class="form-control" required>
             <input type="submit" value="Sign in!" class="btn btn-outline-info">
             <p>Don't have an account? <br /><span id="new-user">Sign up today!</span></p>
           </form>
@@ -44,8 +44,8 @@
 
           <form id="change-password">
             <legend>Change Password</legend>
-            <input type="password" name="passwords[old]" placeholder="Old Password">
-            <input type="password" name="passwords[new]" placeholder="New Password">
+            <input type="password" name="passwords[old]" placeholder="Old Password" required>
+            <input type="password" name="passwords[new]" placeholder="New Password" required>
             <input type="submit" value="Change Password!" class="btn btn-outline-info">
           </form>
         </div>
@@ -54,12 +54,21 @@
     </div>
 
     <div class="column right">
+      <h2>Locations</h2>
+      <form id="create-location">
+        <legend>Add Another Location</legend>
+        <input type="text" name="location[name]" placeholder="Name" class="location-input" required>
+        <input type="text" name="location[address]" placeholder="Address" class="location-input" required>
+        <input type="submit" value="Add Location" class="btn btn-primary">
+      </form>
+      <button id="locations-index" class="btn btn-primary">All Locations</button>
+      <div id="locations-list"></div>
       <nav>
         <div class="app-name"><h2>Events</h2></div>
         <div class="nav-buttons">
-          <button id="getEventsButton" class="btn btn-primary">Get Events!</button>
-          <button id="clearEventsButton" style="display:none" class="btn btn-primary">Clear Events!</button>
-          <button style="display:none" id="createEventButton" class="btn btn-primary signed-in">Create an Event!</button>
+          <button id="getEventsButton" class="btn btn-primary">See All Events</button>
+          <button id="clearEventsButton" style="display:none" class="btn btn-primary">Clear Events</button>
+          <button style="display:none" id="createEventButton" class="btn btn-primary signed-in">Add Event</button>
         </div>
       </nav>
 
@@ -69,13 +78,15 @@
             <fieldset>
               <legend>Enter New Event Info:</legend>
               <p id="events-message"></p>
-              <input type="text" name="event[name]" placeholder="Name" class="event-input">
-              <input type="text" name="event[description]" placeholder="Description" class="event-input">
-              <input type="date" id="datepicker" name="event[date]" placeholder="Date" class="event-input">
-              <input type="time" id="timepicker" name="event[time]" placeholder="Time" class="event-input">
-              <input type="text" name="event[location]" placeholder="Location" class="event-input">
-              <input type="text" name="event[organizer]" placeholder="Organizer" class="event-input">
-              <input type="submit" value="Create New Event!">
+              <input type="text" name="event[name]" placeholder="Name" class="event-input" required>
+              <input type="text" name="event[description]" placeholder="Description" class="event-input" required>
+              <input type="date" id="datepicker" name="event[date]" placeholder="Date" class="event-input" required>
+              <input type="time" id="timepicker" name="event[time]" placeholder="Time" class="event-input" required>
+              <select id="event-location-index" name="event[location_id]">
+              </select>
+              <!-- <input type="text" name="event[location_id]" placeholder="Location" class="event-input"> -->
+              <input type="text" name="event[organizer]" placeholder="Organizer" class="event-input" required>
+              <input type="submit" value="Add Event!" class="btn btn-primary">
             </fieldset>
           </form>
         </div>

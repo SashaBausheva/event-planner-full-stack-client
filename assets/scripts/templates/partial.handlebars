@@ -1,1 +1,5 @@
-<p>Some stuff!</p>
+<select id="event-location" name="event[location_id]" onchange="show(this)">
+  {{#each locations as |location|}}
+  <option value="{{location.id}}">{{location.name}}</option>
+  {{/each}}
+</select>

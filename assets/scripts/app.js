@@ -8,6 +8,7 @@
 
 const eventsEvents = require('./events/events.js')
 const authEvents = require('./auth/events')
+// const getLocationsSelection = require('./templates/events-listing.handlebars')
 
 // On document ready
 $(() => {

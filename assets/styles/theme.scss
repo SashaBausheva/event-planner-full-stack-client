@@ -18,6 +18,18 @@ body {
   padding: 0;
 }
 
+h3 {
+  line-height: 1rem;
+  margin-bottom: 1rem;
+  color: $link;
+}
+
+h6 {
+  font-weight: 700;
+  line-height: 1rem;
+  padding-top: 1rem;
+}
+
 header {
   background: white url("public/images/bg-purple.jpg") no-repeat fixed center;
   background-size: cover;
@@ -28,6 +40,10 @@ header {
     font-size: 3em;
     padding: 4vh;
   }
+}
+
+li {
+  text-decoration: none;
 }
 
 main {
@@ -80,9 +96,9 @@ fieldset {
   padding: 1rem;
 }
 
-input {
-  border: 2px solid white;
-  border-radius: 4px;
+input, select {
+  border: 1px solid white;
+  border-radius: 0;
   display: block;
   margin: .2em auto;
   min-width: 30vh;
@@ -206,6 +222,9 @@ color: #9d9d9d;
   background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(211,252,255,0.7));
   padding: 2rem;
   width: 75%;
+  p {
+    line-height: 1rem;
+  }
 }
 
 .row {
