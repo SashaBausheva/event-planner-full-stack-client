@@ -103,6 +103,9 @@ const addHandlers = () => {
   $('.content').on('click', '.edit-event-button', onEditEventButton)
   $('.content').submit('#update-event-' + $(this).data('id'), onEditEvent)
   $('#createEventButton').on('click', onCreateEventButton)
+  $('#locations-form-show').on('click', function () {
+    $('#create-location').toggle()
+  })
 }
 
 module.exports = {

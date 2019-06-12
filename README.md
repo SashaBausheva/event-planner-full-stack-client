@@ -1,4 +1,5 @@
-# Event Planner: A Single-Page Application Project by Sasha Bausheva (Front-end Client)
+# Event Planner
+## A Single-Page Application Project by Sasha Bausheva (Front-end Client)
 Is your company looking for a convenient way to schedule their events? This simple Event Planner allows users, when signed up and signed in with their credentials, to create, update, and delete events in the database. The in-built authentication system allows users (as well as non-signed in individuals) to view all events while only being allowed to change their own events (created by them). You also only can create new events when you are signed in. This functionality is perfect for creating and maintaining a dynamic database of events available to everyone to view but only accessible to edit to authenticated and authorized users.
 
 ## Visit the site
@@ -41,14 +42,18 @@ While creating and developing my application, I focused on following the steps b
 - Implement handlebars for displaying data (handlebars template for each event in the table)
 - Test functionality of the authentication system and the connection between user authorization and the ability to create, update, and delete events
 - Add feedback messages for each action's success and failure
-- De-bug, refactor, and add styling to the client
+- De-bug and refactor
+- Set up another table (Locations) via Ruby on Rails and connect it to Events (one-to-many relationship)
+- Set up basic API requests for locations (GET and POST)
+- Render the data from the API GET request for locations on the front end
+- Connect the API POST request for locations to the front end via forms and handlebars
+- De-bug and refactor, and add styling to the client
 
 ## Wireframes and Entity Relationship Diagrams
-Initial wireframes (a little too ambitious for the timeframe I was working with)
-[Wireframes and Entity Relationship Diagrams](https://github.com/sashabausheva/event-planner-full-stack-client/public/images/wireframes)
+[Initial Wireframes and Entity Relationship Diagrams](https://github.com/sashabausheva/event-planner-full-stack-api/public/images/wireframes)
 
 ## Unsolved Problems / Future Development Plans
-While I have added another resource to my API (Locations) and connected it to my initial table (Events) via the one-to-many relationship (an event belongs to one location; one location has many events), I am yet to render this connection on the front end. I would like to allow users to select a location from the list of available locations in the databaseI would like to add another resource to my API. This resource would be Lists, in which the user would be able to organize their tasks into specific lists.
-I would like to add a feature where the user can mark tasks as complete. This would take the tasks off of the visible listing of open tasks, but would store them elsewhere, in case the user would like to access them in the future.
-
-, and My Process / Problem Solving Strategy
+- I would like to add another resource (Organizer) to the database, create appropriate API requests for it, and render the data from it in the client. The Organizer table should be connected to Events (many-to-many relationship).
+- My current code is far from being DRY. I need to refactor it further to avoid occasional bugs and to ensure the client loads smoothly and speedily.
+- Variable, class, and ID names are currently unclear. My goal is to rename them accordingly to make the code easier to read, understand, and further work with.
+- Additional styling is desirable.

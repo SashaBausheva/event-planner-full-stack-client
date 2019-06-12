@@ -55,12 +55,15 @@
 
     <div class="column right">
       <h2>Locations</h2>
-      <form id="create-location">
-        <legend>Add Another Location</legend>
-        <input type="text" name="location[name]" placeholder="Name" class="location-input" required>
-        <input type="text" name="location[address]" placeholder="Address" class="location-input" required>
-        <input type="submit" value="Add Location" class="btn btn-primary">
-      </form>
+      <div id="locations-form" class="signed-in" style="display:none">
+        <button id="locations-form-show" class="btn btn-primary">Add Location</button>
+        <form id="create-location" style="display:none">
+          <legend>Add Another Location</legend>
+          <input type="text" name="location[name]" placeholder="Name" class="location-input" required>
+          <input type="text" name="location[address]" placeholder="Address" class="location-input" required>
+          <input type="submit" value="Add Location" class="btn btn-primary">
+        </form>
+      </div>
       <button id="locations-index" class="btn btn-primary">All Locations</button>
       <div id="locations-list"></div>
       <nav>

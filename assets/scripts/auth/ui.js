@@ -44,6 +44,10 @@ const signOutSuccess = function () {
   $('.content').empty()
   $('#getEventsButton').show()
   $('#clearEventsButton').hide()
+  $('#create-event').hide()
+  $('#create-location').hide()
+  $('#locations-list').hide()
+  $('#locations-index').show()
   formReset()
   store.user = null
 }

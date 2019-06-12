@@ -42,7 +42,8 @@ const createLocationSuccess = (data) => {
 const showLocationsSuccess = (data) => {
   const showLocationsHtml = showLocationsTemplate({ locations: data.locations })
   $('#locations-list').html(showLocationsHtml)
-  $('#locations-index').toggle()
+  $('#locations-list').show()
+  $('#locations-index').hide()
 }
 
 const getLocationsOnCreateSuccess = (data) => {
@@ -53,6 +54,8 @@ const getLocationsOnCreateSuccess = (data) => {
 const removeEventSuccess = (data) => {
   $('#events-message').html('Event removed successfully!')
   $('#events-message').fadeIn('fast').delay(2000).fadeOut('fast')
+  $('#getEventsButton').hide()
+  $('#clearEventsButton').show()
   const showEventsHtml = showEventsTemplate({ events: data.events })
   $('.content').html(showEventsHtml)
   formReset()
