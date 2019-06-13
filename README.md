@@ -50,7 +50,7 @@ While creating and developing my application, I focused on following the steps b
 - De-bug and refactor, and add styling to the client
 
 ## Wireframes and Entity Relationship Diagrams
-[Initial Wireframes and Entity Relationship Diagrams](https://github.com/sashabausheva/event-planner-full-stack-api/public/images/wireframes)
+[Initial Wireframes and Entity Relationship Diagrams](https://github.com/SashaBausheva/event-planner-full-stack-api/tree/master/public/images/wireframes)
 
 ## Unsolved Problems / Future Development Plans
 - I would like to add another resource (Organizer) to the database, create appropriate API requests for it, and render the data from it in the client. The Organizer table should be connected to Events (many-to-many relationship).
