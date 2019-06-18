@@ -44,7 +44,7 @@
             <input type="date" name="event[date]" placeholder="Date" required>
             <input type="time" name="event[time]" placeholder="Time" required>
             <select class="event-location" name="event[location_id]" required>
-              {{#each ../events/locations as |location|}}
+              {{#each event.locations as |location|}}
               <option value="{{location.id}}">{{location.name}}</option>
               {{/each}}
             </select>

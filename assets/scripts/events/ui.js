@@ -13,8 +13,18 @@ const getEventsSuccess = (data) => {
   $('#clearEventsButton').toggle()
 }
 
+// const getLocationsAndEventsSuccess = (data) => {
+//   store.events.locations = data.locations
+//   const showEventsAndLocationsHtml = showEventsAndLocationsTemplate({ events: store.events })
+//   $('.content').html(showEventsAndLocationsHtml)
+//   $('#getEventsButton').toggle()
+//   $('#clearEventsButton').toggle()
+// }
+
 const getLocationsAndEventsSuccess = (data) => {
-  store.events.locations = data.locations
+  store.events.forEach(function (event) {
+    event.locations = data.locations
+  })
   const showEventsAndLocationsHtml = showEventsAndLocationsTemplate({ events: store.events })
   $('.content').html(showEventsAndLocationsHtml)
   $('#getEventsButton').toggle()
